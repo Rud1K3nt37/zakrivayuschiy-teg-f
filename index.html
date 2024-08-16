@@ -16,15 +16,15 @@
     <link rel="stylesheet" href="./styles/themes.css" />
     <script src="./scripts/set-theme.js"></script>
   </head>
-  <body class="page">
-    <header class="header container-change"> <!-- придумать подходящий класс для container -->
+  <body class="page flex-box">
+    <header class="header container-change box-frame flex-box">
       <a class="header__logo accent__text">&lt;/html&gt;</a> <!-- может span? и тире одно? -->
       <h1 class="header__title accent__text">закрывающий тег</h1>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
         <ul class="theme-menu__list accent__text">
           <li class="theme-menu__item">
-            <button type="button" data-theme="dark" class="theme-menu__button">
+            <button type="button" data-theme="dark" class="theme-menu__button button">
               Темно
             </button>
           </li>
@@ -33,64 +33,68 @@
               type="button"
               data-theme="auto"
               disabled
-              class="theme-menu__button"
+              class="theme-menu__button button"
             >
               Авто
             </button>
           </li>
           <li class="theme-menu__item">
-            <button type="button" data-theme="light" class="theme-menu__button">
+            <button type="button" data-theme="light" class="theme-menu__button button">
               Светло
             </button>
           </li>
         </ul>
       </nav>
     </header>
-    <main class="main">
-      <article class="card container-change">
+    <main class="main flex-box">
+      <article class="card container-change box-frame flex-box">
         <h2 class="card__title">Фритрек и нулевой спринт: Подготовка к работе</h2>
         <div class="card__overlay accent__text">
           <span class="card__overlay-decor">&lt;/html&gt;</span>
           <picture>
-            <source srcset="./assets/images/car_375x375.png" media="(max-width: 500px)">
+            <source srcset="./assets/images/car_375x375.png" media="(max-width: 375px)">
             <img src="./assets/images/car_700x700.png" alt="" class="card__image">
           </picture>
         </div>
         <p class="card__content">
           Это было самое начало пути. На этом этапе важно было проникнуться основами и настроиться на учёбу. И, возможно, подумать, как новые знания могут повлиять на ваше будущее.
         </p>
-        <p class="card__content">
+        <p class="card__content calc-size">
           Место для ваших воспоминаний о начале обучения.
         </p>
-        <button class="card__like-button accent__text button">
-          <svg class="like-icon is-liked" width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 0H3V3H6V0Z" fill="black"/>
-            <path d="M9 0H6V3H9V0Z" fill="black"/>
-            <path d="M3 3H0V6H3V3Z" fill="black"/>
-            <path d="M3 6H0V9H3V6Z" fill="black"/>
-            <path d="M3 9H0V12H3V9Z" fill="black"/>
-            <path d="M12 0H9V3H12V0Z" fill="black"/>
-            <path d="M6 12H3V15H6V12Z" fill="black"/>
-            <path d="M9 15H6V18H9V15Z" fill="black"/>
-            <path d="M12 18H9V21H12V18Z" fill="black"/>
-            <path d="M21 0H24V3H21V0Z" fill="black"/>
-            <path d="M18 0H21V3H18V0Z" fill="black"/>
-            <path d="M24 3H27V6H24V3Z" fill="black"/>
-            <path d="M24 6H27V9H24V6Z" fill="black"/>
-            <path d="M24 9H27V12H24V9Z" fill="black"/>
-            <path d="M15 0H18V3H15V0Z" fill="black"/>
-            <path d="M21 12H24V15H21V12Z" fill="black"/>
-            <path d="M18 15H21V18H18V15Z" fill="black"/>
-            <path d="M15 18H18V21H15V18Z" fill="black"/>
-            <path d="M15 3H12V6H15V3Z" fill="black"/>
-            <path d="M15 21H12V24H15V21Z" fill="black"/>
-            </svg>            
-          <span class="button__text">Like</span>
-        </button>
+        <div class="card__button">
+          <button class="card__icon-button button">
+            <svg class="like-icon is-liked" width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 0H3V3H6V0Z" fill="black"/>
+              <path d="M9 0H6V3H9V0Z" fill="black"/>
+              <path d="M3 3H0V6H3V3Z" fill="black"/>
+              <path d="M3 6H0V9H3V6Z" fill="black"/>
+              <path d="M3 9H0V12H3V9Z" fill="black"/>
+              <path d="M12 0H9V3H12V0Z" fill="black"/>
+              <path d="M6 12H3V15H6V12Z" fill="black"/>
+              <path d="M9 15H6V18H9V15Z" fill="black"/>
+              <path d="M12 18H9V21H12V18Z" fill="black"/>
+              <path d="M21 0H24V3H21V0Z" fill="black"/>
+              <path d="M18 0H21V3H18V0Z" fill="black"/>
+              <path d="M24 3H27V6H24V3Z" fill="black"/>
+              <path d="M24 6H27V9H24V6Z" fill="black"/>
+              <path d="M24 9H27V12H24V9Z" fill="black"/>
+              <path d="M15 0H18V3H15V0Z" fill="black"/>
+              <path d="M21 12H24V15H21V12Z" fill="black"/>
+              <path d="M18 15H21V18H18V15Z" fill="black"/>
+              <path d="M15 18H18V21H15V18Z" fill="black"/>
+              <path d="M15 3H12V6H15V3Z" fill="black"/>
+              <path d="M15 21H12V24H15V21Z" fill="black"/>
+              </svg>   
+          </button>
+          <button class="card__like-button accent__text button">         
+            <span class="button__text">Like</span>
+          </button>
+        </div>
       </article>
     </main>
-    <footer class="footer">
-      <button class="card__icon-button">
+    <footer class="footer box-frame accent__text">
+      <button class="footer__save-button buttom-animation button">
         <svg width="21" height="21" viewBox="0 0 21 21">
           <use href="./assets/svg/floppy.svg#floppy-1">
         </svg>

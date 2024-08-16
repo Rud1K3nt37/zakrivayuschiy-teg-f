@@ -12,11 +12,44 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
+.accent__text {
+  font-family: var(--font-accent, 'PressStart2P-Regular', sans-serif);
+}
 
-.page {
+.container-change {
+  background-color: var(--background-color, #fff);
+  inline-size: min(100%, var(--container-max-width, 700px));
+}
+
+.box-frame {
+  border: var(--border, 2px solid var(--accent-color, #000));
+}
+
+.flex-box {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.button {
+  border: none;
+  padding: 0;
+  font-size: var(--font-size-s, 14px);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
+}
+
+/* .button:active { оставлю
+  background-color: transparent;
+  transform: scale(1.5);
+} */
+
+/* проверить потом на переполнении контента */
+.page {
   color: var(--accent-color, #000);
   font-family: var(--font-main, Arial, sans-serif);
   background-image: var(--background-image);
@@ -28,87 +61,72 @@
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-block-start: var(--margin-m, 100px);
 }
 
-.container-change {
-  border: 2px solid #000; /* -- */
-  background-color: var(--background-color, #fff);
-  inline-size: min(100%, var(--container-max-width, 700px)); /* !проверить вместе с медиа */
-}
-
-@media (width <= 375px) {
-  .container-change {
-    inline-size: 100%;
-  }
-}
-
 .header__logo {
-  padding-block-start: clamp(120px, calc(120px + (136 - 120) * ((100vw - 375px) / (700 - 375))), 136px);
+  padding-block-start: var(--padding-adaptive-logo, 
+    clamp(120px, calc(120px + (136 - 120) * ((100vw - 375px) / (700 - 375))), 136px));
   font-size: clamp(2.72rem, 4.92vw + 1.7rem, 3.61rem);
   text-transform: uppercase;
 }
 
 .header__title {
-  padding-block-start: 20px;
+  padding-block-start: 20px; /* s */
   font-size: clamp(0.78rem, 2.77vw + 0.2rem, 1.28rem);
   text-transform: uppercase;
 }
 
 .header__theme-menu {
-  padding: 25px clamp(133px, 25vw, 297px) 25px clamp(154px, 25vw, 315px);
-  font-size: 14px;
+  padding: var(--padding-adaptive-title,
+    25px clamp(133px, 25vw, 297px) 25px clamp(154px, 25vw, 315px));
 }
 
 .theme-menu__item:not(:last-of-type) {
-  margin-block-end: 14px;
+  margin-block-end: var(--margin-button-not-last, 14px);
+}
+
+.theme-menu__list {
+  font-size: var(--font-size-s, 14px); /* сам ul имеет 18px из-за этого расхождение по px */
 }
 
 .theme-menu__button {
   position: relative;
-  border: none;
-  padding: 0;
   text-transform: uppercase;
-  background-color: transparent;
-  cursor: pointer;
+}
+
+.theme-menu__button:disabled {
+  transition: var(--transition-s, 0.3s);
+  pointer-events: none;
 }
 
 .theme-menu__button:disabled::before {
   content: '▶';
   position: absolute;
-  inset: 0 -20px;
-  animation: indicator 0.5s ease-in-out infinite alternate;
+  inset: var(--position-direction-default, 0);
+  animation: indicator var(--transition-m, 0.5s) ease-in-out infinite alternate;
   inline-size: 14px;
   block-size: 14px;
 }
 
 @keyframes indicator {
   from {
-    inset: 0 -20px;
+    inset: var(--position-direction-start, 0 -20px);
   }
 
   to {
-    inset: 0 -24px;
+    inset: var(--position-direction-end, 0 -24px);
   }
 }
 
-.theme-menu__button:disabled {
-  opacity: 60%;
-  transition: 0.3s;
-  pointer-events: none;
-}
-
 .theme-menu__button:hover {
-  opacity: 60%;
-  transition: 0.3s;
+  transition: var(--transition-s, 0.3s);
 }
 
+.theme-menu__button:disabled,
+.theme-menu__button:hover,
 .theme-menu__button:focus {
-  outline: none;
-  opacity: 60%;
+  opacity: var(--opacity-l, 60%);
 }
 
 .theme-menu__button::after {
@@ -116,52 +134,54 @@
   position: absolute;
   bottom: -3px;
   left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #000;
+  background-color: var(--accent-color, #000);
   transition: transform 0.3s ease;
   transform: scaleX(0);
   transform-origin: bottom left;
+  inline-size: 100%;
+  block-size: 2px;
 }
 
 .theme-menu__button:focus-visible::after {
-  opacity: 60%;
+  opacity: var(--opacity-l, 60%);
   transform: scaleX(1);
 }
 
-.accent__text {
-  font-family: var(--font-accent, 'PressStart2P-Regular', sans-serif);
-}
-
 .main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px; /**/
+  gap: var(--gap-m, 50px);
   margin-block-start: var(--margin-m, 100px);
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card > :not(.card__title) { /* пока хз */
-  margin-block-end: 25px;
-}
-
-.card__title {
+.card__title { /* заголовок немного не сходится должен быть шире по высоте */
   align-self: start;
-  padding: 3px 10px 3px 10px; /**/
-  font-size: 18px; /**/
-  line-height: 1.21; /**/
-  font-variation-settings: 'wght' var(--font-weight-heading-light, 700);
+  padding: 3px 10px;
+  font-size: inherit;
+  line-height: var(--line-height-l, 1.21);
+  font-variation-settings: 'wght' var(--font-weight-heading, 700);
 }
 
-@media (width <= 375px) {
-  .card__title {
-    padding: 4px 10px 6px 10px; /**/
+.card__overlay {
+  position: relative;
+  border-block-start: var(--border, 2px solid var(--accent-color, #000)); /* можно сделать всё в общую переменную */
+  border-block-end: var(--border, 2px solid var(--accent-color, #000));
+}
+
+.card__overlay-decor {
+  position: absolute;
+  top: 27px;
+  right: 27px; /* -- */
+  opacity: var(--opacity-m, 50%);
+  font-size: var(--font-size-s, 14px);
+  text-transform: uppercase; /* делать ли везде эту переменную? */
+  text-shadow: var(--text-shadow, 0.5px 0.5px #fff, -0.5px -0.5px #fff);
+  mix-blend-mode: hard-light;
+}
+
+@supports((text-stroke: 0.5px #fff) or (-webkit-text-stroke: 0.5px #fff)) { /* подумать нужна ли тут переменная? */
+  .card__overlay-decor {
+    text-shadow: none;
+    -webkit-text-stroke: var(--text-stroke, 0.5px #fff);
+    text-stroke: var(--text-stroke, 0.5px #fff);
   }
 }
 
@@ -169,70 +189,91 @@
   display: block;
   object-fit: cover;
   object-position: center;
-  inline-size: 100%;
-  block-size: 100%;
-}
-
-.card__overlay {
-  position: relative;
-}
-
-.card__overlay-decor {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  opacity: 50%; /**/
-  font-size: 14px;
-  text-transform: uppercase;
-  text-shadow: 
-    1px 1px #fff,
-    -1px -1px #fff; /* для тёмной и -- */
-  mix-blend-mode: hard-light;
-}
-
-@supports((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
-  .card__overlay-decor {
-    text-shadow: none;
-    -webkit-text-stroke: 1px #fff;
-    text-stroke: 1px #fff;
-  }
-}
-
-@media (width <= 375px) {
-  .card__overlay-decor {
-    right: 13px;
-  }
+  aspect-ratio: 1 / 1;
 }
 
 .card__content {
   align-self: start;
-  padding: 0 25px 0; /**/
-  line-height: 1.167;
+  padding: var(--padding-m, 25px) var(--padding-m, 25px) 0;
+  line-height: var(--line-height-m, 1.167);
+}
+/* рефакторинг */
+.calc-size { /* по макету 27px calc просто от балды */
+  padding-block-start: calc(25px + 2px);
 }
 
-.card__like-button {
+.card__button {
   display: flex;
-  align-items: center;
   gap: 12px;
   align-self: end;
-  margin: 25px 25px 25px 0;
+  margin: var(--margin-s, 25px ) var(--margin-s, 25px ) var(--margin-s, 25px ) 0;
 }
 
-.card__like-button:focus {
-  outline: none;
+.card__icon-button { /* немного промахивается по макету */
+  align-self: end;
+}
+
+.card__like-button { /* большой размер, но всё по макету сделано, найти причину */
+  position: relative;
+  outline: 2px solid #000;
+  text-align: center;
+  inline-size: 130px; /* если использовать падинг то реагирует на размер с иконкой */
+  block-size: 38px;
+}
+
+.card__like-button.button:focus {
+  outline: 2px solid #000;
 }
 
 .card__like-button:focus-visible {
-  box-shadow: 2px 2px 0 #000;
+  box-shadow: 4px 4px 0 #000; /* вроде по тз на 2 пикселя, но кнопка большая */
+  transition: 0.3s;
 }
 
-.button__text {
-  
+.card__like-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  background-color: #000;
+  transition: 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
 }
 
-.button {
-  border: transparent;
-  font-size: 14px;
-  background-color: transparent;
-  cursor: pointer;
+.card__like-button:hover::after {
+  transform: scaleX(1);
+} 
+
+.button__text { /* подумать как сделать изящнее */
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* фон местами поменять */
+  inline-size: 100%;
+  block-size: 100%;
+  mix-blend-mode: difference;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 103px 0;
+  background-color: #fff;
+  inline-size: 355px;
+  block-size: 55px;
+}
+
+@media (width <= 375px) {
+  .card__title {
+    padding: 4px 10px 6px;
+  }
+
+  .card__overlay-decor {
+    right: 13px;
+  }
 }

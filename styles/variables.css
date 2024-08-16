@@ -7,11 +7,19 @@
   --font-weight-heading-light: 700;
   --font-weight-heading-dark: 785;
 
-  --font-weight-main: var(--font-weight-light, 400); /* нашёл причину и нужно повнимательнее с переменными */
+  --font-weight-main: var(--font-weight-light, 400);
   --font-weight-heading: var(--font-weight-heading-light, 700);
+
+  --font-size-s: 14px;
+
+  --line-height-s: 1;
+  --line-height-m: 1.167;
+  --line-height-l: 1.21;
 
   --background-color: #fff;
   --accent-color: #000;
+
+  --border: 2px solid var(--accent-color, #000);
 
   --background-image-light:
     repeating-linear-gradient(90deg, #d3d3d3 0, #d3d3d3 2px, transparent 2px, transparent 4px),
@@ -24,9 +32,33 @@
 
   --background-image: var(--background-image-light);
 
+  --text-shadow: 0.5px 0.5px #fff, -0.5px -0.5px #fff;
+  --text-stroke: 0.5px #fff;
+
   --container-max-width: 700px;
 
-  --margin-m: 100px;
+  --gap-s: 12px;
+  --gap-m: 50px;
 
-  --line-height-s: 1;
+  --margin-s: 25px ;
+  --margin-m: 100px;
+  --margin-l: ;
+  --margin-button-not-last: 14px;
+
+  --padding-s: 20px;
+  --padding-m: 25px;
+  --padding-adaptive-logo:
+    clamp(120px, calc(120px + (136 - 120) * ((100vw - 375px) / (700 - 375))), 136px);
+  --padding-adaptive-title:
+    25px clamp(133px, 25vw, 297px) 25px clamp(154px, 25vw, 315px);
+
+  --transition-s: 0.3s;
+  --transition-m: 0.5s;
+
+  --opacity-m: 50%;
+  --opacity-l: 60%;
+
+  --position-direction-default: 0;
+  --position-direction-start: 0 -20px;
+  --position-direction-end: 0 -24px;
 }

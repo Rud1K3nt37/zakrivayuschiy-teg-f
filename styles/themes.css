@@ -11,6 +11,9 @@
   --font-weight-main: var(--font-weight-light, 400);
   --font-weight-heading: var(--font-weight-heading-light, 700);
   --background-image: var(--background-image-light);
+  --border: 2px solid #000;
+  --text-shadow: 0.5px 0.5px #fff, -0.5px -0.5px #fff;
+  --text-stroke: 0.5px #fff;
 }
 
 :root.theme-dark {
@@ -19,6 +22,9 @@
   --font-weight-main: var(--font-weight-dark, 465);
   --font-weight-heading: var(--font-weight-heading-dark, 785);
   --background-image: var(--background-image-dark);
+  --border: 2px solid #00cc14;
+  --text-shadow: 0.5px 0.5px #000, -0.5px -0.5px #000;
+  --text-stroke: 0.5px #000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,5 +34,8 @@
     --font-weight-main: var(--font-weight-dark, 465);
     --font-weight-heading: var(--font-weight-heading-dark, 785);
     --background-image: var(--background-image-dark);
+    --border: 2px solid #00cc14;
+    --text-shadow: 0.5px 0.5px #000, -0.5px -0.5px #000;
+    --text-stroke: 0.5px #000;
   }
 }
