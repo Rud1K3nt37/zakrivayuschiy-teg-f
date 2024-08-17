@@ -12,6 +12,7 @@
 
   --font-size-s: 14px;
 
+  --line-height-sm: 0.9;
   --line-height-s: 1;
   --line-height-m: 1.167;
   --line-height-l: 1.21;
@@ -38,7 +39,9 @@
   --container-max-width: 700px;
 
   --gap-s: 8px;
-  --gap-m: 50px;
+  --gap-m: 20px;
+  --gap-l: 30px;
+  --gap-xl: 50px;
 
   --margin-s: 25px ;
   --margin-m: 50px;
@@ -53,6 +56,7 @@
     25px clamp(133px, 25vw, 297px) 25px clamp(154px, 25vw, 315px);
   --padding-adaptive-card-title:
     clamp(4px, calc(4px + 1vw * 0.5), 5px) 10px clamp(4px, calc(6px - 2vw * 0.5), 6px);
+  --padding-adaptive-banner: 30px clamp(42px, 2vw, 30px);
 
   --transition-s: 0.3s;
   --transition-m: 0.5s;
@@ -74,10 +78,12 @@
   
   --filter-retro: contrast(150%) brightness(80%) saturate(200%);
   --filter-depression: sepia(60%) saturate(50%) brightness(90%);
-  --filter-happy: invert(75%);
-  --filter-retro-neon: contrast(150%) sepia(20%) hue-rotate(270deg) saturate(150%);
-  --filter-melancholy: invert(75%) sepia(20%) saturate(80%);
+  --filter-melancholy: contrast(150%) hue-rotate(240deg) saturate(50%) brightness(80%);
+  --filter-happy: contrast(200%) hue-rotate(280deg) saturate(300%) brightness(90%);
+  --filter-negativ: invert(75%) sepia(20%) saturate(80%);
   --filter-vintage: sepia(100%) contrast(90%) saturate(60%);
   --filter-sleepy: blur(8px) hue-rotate(260deg);
   --filter-psychedelic: hue-rotate(150deg) invert(15%) brightness(80%) contrast(85%);
+
+  --backdrop: rgb(0 0 0 / 0.7);
 }

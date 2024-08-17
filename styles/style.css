@@ -139,7 +139,7 @@
 }
 
 .main {
-  gap: var(--gap-m, 50px);
+  gap: var(--gap-xl, 50px);
   margin-block-start: var(--margin-l, 100px);
 }
 
@@ -193,16 +193,16 @@
   filter: var(--filter-depression, sepia(60%) saturate(50%) brightness(90%));
 }
 
-.filter-happy {
-  filter: var(--filter-happy, invert(75%));
-}
-
-.filter-retro-neon {
-  filter: var(--filter-retro-neon, contrast(150%) sepia(20%) hue-rotate(270deg) saturate(150%));
-}
-
 .filter-melancholy {
-  filter: var(--filter-melancholy, invert(75%) sepia(20%) saturate(80%));
+  filter: var(--filter-melancholy, contrast(150%) hue-rotate(240deg) saturate(50%) brightness(80%));
+}
+
+.filter-happy {
+  filter: var(--filter-happy, contrast(200%) hue-rotate(280deg) saturate(300%) brightness(90%));
+}
+
+.filter-negativ {
+  filter: var(--filter-negativ, invert(75%) sepia(20%) saturate(80%));
 }
 
 .filter-vintage {
@@ -247,7 +247,7 @@
   border: var(--border, 2px solid var(--accent-color, #000));
   text-align: center;
   text-transform: none;
-  inline-size: 130px; /* если использовать падинг то реагирует на размер с иконкой */
+  inline-size: 130px; /* если использовать падинг то реагирует на размер с иконкой, скорее всего button__text добавить ещё класс для размера? */
   block-size: 38px;
 }
 
@@ -281,9 +281,8 @@
 
 @media (width <= 768px) {
   .footer__save-button .floppy-icon {
-    inline-size: 28px;
+    inline-size: max(100%, 28px);
     block-size: 28px;
-    inline-size: 100%;
     margin-block-end: 8px;
   }
 }
@@ -293,9 +292,9 @@
   inset: 0;
   display: grid;
   place-items: center;
-  gap: 30px; /*  */
+  gap: var(--gap-l, 30px);
   border: var(--border, 2px solid var(--accent-color, #000));
-  padding: 30px clamp(42px, 2vw, 30px); /* -- */
+  padding: var(--padding-adaptive-banner, 30px clamp(42px, 2vw, 30px));
   background-color: var(--background-color, #fff);
   transition: 0.3s ease-in-out;
 }
@@ -306,13 +305,13 @@
 }
 
 .banner::backdrop {
-  background-color: rgb(0 0 0 / 0.7); /* -- */
+  background-color: var(--backdrop, rgb(0 0 0 / 0.7));
 } 
 
 .banner__content {
   flex-direction: row;
-  gap: 20px; /*  */
-  font-size: 14px; /*  */  
+  gap: var(--gap-m, 20px);
+  font-size: var(--font-size-s, 14px);
 }
 
 .banner__content-text {
@@ -326,5 +325,5 @@
 .banner__button-save {
   outline: var(--border, 2px solid var(--accent-color, #000));
   padding: 12.5px clamp(114.5px, 2vw, 132.5px);
-  line-height: 0.9; /**/
+  line-height: var(--line-height-sm, 0.9);
 }
