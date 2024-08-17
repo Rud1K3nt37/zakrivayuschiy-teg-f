@@ -235,26 +235,6 @@
   stroke-width: 0;
 }
 
-.button-animation {
-  position: relative;
-}
-
-.button-animation::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-color: var(--accent-color, #000);
-  transition: var(--transition-m, 0.5s) ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-  inline-size: 100%;
-}
-
-.button-animation:hover::after {
-  transform: scaleX(1);
-}
-
 .footer {
   margin: 50px 0 103px 0; /* -- */
   background-color: var(--background-color, #fff);
