@@ -37,28 +37,38 @@
 
   --container-max-width: 700px;
 
-  --gap-s: 12px;
+  --gap-s: 8px;
   --gap-m: 50px;
 
   --margin-s: 25px ;
   --margin-m: 100px;
   --margin-l: ;
-  --margin-button-not-last: 14px;
+  --margin-button-not-last: 14px; /* может более общее название? */
 
   --padding-s: 20px;
   --padding-m: 25px;
   --padding-adaptive-logo:
     clamp(120px, calc(120px + (136 - 120) * ((100vw - 375px) / (700 - 375))), 136px);
-  --padding-adaptive-title:
+  --padding-adaptive-header-title:
     25px clamp(133px, 25vw, 297px) 25px clamp(154px, 25vw, 315px);
+  --padding-adaptive-card-title:
+    clamp(4px, calc(4px + 1vw * 0.5), 5px) 10px clamp(4px, calc(6px - 2vw * 0.5), 6px);
 
   --transition-s: 0.3s;
   --transition-m: 0.5s;
+  --transition-color: #fff;
+
+  --box-shadow-button: 2px 2px 0 var(--accent-color, #000);
 
   --opacity-m: 50%;
   --opacity-l: 60%;
 
-  --position-direction-default: 0;
   --position-direction-start: 0 -20px;
   --position-direction-end: 0 -24px;
+
+  --position-overlay-decor-top: clamp(22px, 4vw, 25px);
+  --position-overlay-decor-right: clamp(11px, 2vw, 25px);
+
+  --fill-accent: var(--accent-color, #000);
+  --fill-sparks: #f00;
 }

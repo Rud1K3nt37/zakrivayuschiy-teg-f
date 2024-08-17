@@ -5,7 +5,7 @@
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
 
-:root.theme-light { /* пока не понимаю, но авто темнит страницу */
+:root.theme-light { /* пока не понимаю, но automathic dark mode темнит страницу */
   --background-color: #fff;
   --accent-color: #000;
   --font-weight-main: var(--font-weight-light, 400);
@@ -14,6 +14,7 @@
   --border: 2px solid #000;
   --text-shadow: 0.5px 0.5px #fff, -0.5px -0.5px #fff;
   --text-stroke: 0.5px #fff;
+  --transition-color: #fff;
 }
 
 :root.theme-dark {
@@ -25,6 +26,7 @@
   --border: 2px solid #00cc14;
   --text-shadow: 0.5px 0.5px #000, -0.5px -0.5px #000;
   --text-stroke: 0.5px #000;
+  --transition-color: #00cc14; /* не совсем понял почему сработало, но оно работает */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,5 +39,6 @@
     --border: 2px solid #00cc14;
     --text-shadow: 0.5px 0.5px #000, -0.5px -0.5px #000;
     --text-stroke: 0.5px #000;
+    --transition-color: #00cc14;
   }
 }

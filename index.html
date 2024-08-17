@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-sheme" content="light dark">
+    <meta name="description" content="Итоги четырёх спринтов">
     <title>Закрывающий тег</title>
     <link rel="icon" href="./assets/favicons/favicon.ico" sizes="any">
     <link rel="icon" href="./assets/favicons/favicon.svg" type="image/svg+xml">
@@ -16,15 +17,19 @@
     <link rel="stylesheet" href="./styles/themes.css" />
     <script src="./scripts/set-theme.js"></script>
   </head>
-  <body class="page flex-box">
-    <header class="header container-change box-frame flex-box">
-      <a class="header__logo accent__text">&lt;/html&gt;</a> <!-- может span? и тире одно? -->
-      <h1 class="header__title accent__text">закрывающий тег</h1>
+  <body class="page flex">
+    <header class="header accent-text wrapper flex">
+      <a class="header__logo">&lt;/html&gt;</a>
+      <h1 class="header__title">закрывающий тег</h1>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
-        <ul class="theme-menu__list accent__text">
+        <ul class="theme-menu__list accent-text">
           <li class="theme-menu__item">
-            <button type="button" data-theme="dark" class="theme-menu__button button">
+            <button 
+              type="button" 
+              data-theme="dark" 
+              class="theme-menu__button button"
+            >
               Темно
             </button>
           </li>
@@ -39,67 +44,173 @@
             </button>
           </li>
           <li class="theme-menu__item">
-            <button type="button" data-theme="light" class="theme-menu__button button">
+            <button 
+              type="button" 
+              data-theme="light" 
+              class="theme-menu__button button"
+            >
               Светло
             </button>
           </li>
         </ul>
       </nav>
     </header>
-    <main class="main flex-box">
-      <article class="card container-change box-frame flex-box">
+    <main class="main flex">
+      <article class="card wrapper flex">
         <h2 class="card__title">Фритрек и нулевой спринт: Подготовка к работе</h2>
-        <div class="card__overlay accent__text">
+        <div class="card__overlay accent-text">
           <span class="card__overlay-decor">&lt;/html&gt;</span>
           <picture>
             <source srcset="./assets/images/car_375x375.png" media="(max-width: 375px)">
-            <img src="./assets/images/car_700x700.png" alt="" class="card__image">
+            <img src="./assets/images/car_700x700.png" alt="" class="card__image"> <!-- добавить описание -->
           </picture>
         </div>
         <p class="card__content">
-          Это было самое начало пути. На этом этапе важно было проникнуться основами и настроиться на учёбу. И, возможно, подумать, как новые знания могут повлиять на ваше будущее.
+          Это было самое начало пути. На этом этапе важно было проникнуться основами и 
+          настроиться на учёбу. И, возможно, подумать, как новые знания могут повлиять на ваше 
+          будущее.
         </p>
-        <p class="card__content calc-size">
+        <p class="card__content">
           Место для ваших воспоминаний о начале обучения.
         </p>
-        <div class="card__button">
-          <button class="card__icon-button button">
-            <svg class="like-icon is-liked" width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 0H3V3H6V0Z" fill="black"/>
-              <path d="M9 0H6V3H9V0Z" fill="black"/>
-              <path d="M3 3H0V6H3V3Z" fill="black"/>
-              <path d="M3 6H0V9H3V6Z" fill="black"/>
-              <path d="M3 9H0V12H3V9Z" fill="black"/>
-              <path d="M12 0H9V3H12V0Z" fill="black"/>
-              <path d="M6 12H3V15H6V12Z" fill="black"/>
-              <path d="M9 15H6V18H9V15Z" fill="black"/>
-              <path d="M12 18H9V21H12V18Z" fill="black"/>
-              <path d="M21 0H24V3H21V0Z" fill="black"/>
-              <path d="M18 0H21V3H18V0Z" fill="black"/>
-              <path d="M24 3H27V6H24V3Z" fill="black"/>
-              <path d="M24 6H27V9H24V6Z" fill="black"/>
-              <path d="M24 9H27V12H24V9Z" fill="black"/>
-              <path d="M15 0H18V3H15V0Z" fill="black"/>
-              <path d="M21 12H24V15H21V12Z" fill="black"/>
-              <path d="M18 15H21V18H18V15Z" fill="black"/>
-              <path d="M15 18H18V21H15V18Z" fill="black"/>
-              <path d="M15 3H12V6H15V3Z" fill="black"/>
-              <path d="M15 21H12V24H15V21Z" fill="black"/>
-              </svg>   
+        <div class="card__button flex">
+          <button class="card__icon-button button" type="button">
+            <svg 
+              class="like-icon" 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="38" 
+              height="34" 
+              fill="none"
+            >
+              <g class="heart" clip-path="url(#a)">
+                <path 
+                  class="contour" 
+                  fill="var(--fill-accent, var(--accent-color, #000))" 
+                  d="M12 6H9v3h3V6Zm3 0h-3v3h3V6ZM9 9H6v3h3V9Zm0 3H6v3h3v-3Zm0 3H6v3h3v-3Zm9-9h-3v3h3V6Zm-6 12H9v3h3v-3Zm3 3h-3v3h3v-3Zm3 3h-3v3h3v-3Zm9-18h3v3h-3V6Zm-3 0h3v3h-3V6Zm6 3h3v3h-3V9Zm0 3h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-9-9h3v3h-3V6Zm6 12h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0-18h-3v3h3V9Z"
+                />
+                <path 
+                  class="main-body" 
+                  fill="none" 
+                  d="M12 9H9v3h3V9Zm3 3h-3v3h3v-3Zm3-3h-3v3h3V9Zm-6 6H9v3h3v-3Zm3 0h-3v3h3v-3Zm0 3h-3v3h3v-3Zm3-6h-3v3h3v-3Zm0 9h-3v3h3v-3Zm0-3h-3v3h3v-3Zm9-9h3v3h-3V9Zm-3 0h3v3h-3V9Zm3 3h3v3h-3v-3Zm-3 0h3v3h-3v-3Zm-3-3h3v3h-3V9Zm6 6h3v3h-3v-3Zm-3 0h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-3-6h3v3h-3v-3Zm0 9h3v3h-3v-3Zm0-3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0 3h-3v3h3v-3Z"
+                />
+                <path 
+                  class="core" 
+                  fill="none" 
+                  d="M18 15h-3v3h3v-3Zm3 0h3v3h-3v-3Zm0 0h-3v3h3v-3Zm0-3h-3v3h3v-3Zm0 6h-3v3h3v-3Z"
+                />
+              </g>
+                <path 
+                  class="sparks" 
+                  fill="var(--fill-sparks, #f00)" 
+                  d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
+                />
+              <defs>
+                <clipPath id="a">
+                  <path fill="#fff" d="M0 0h39v36H0z"/>
+                </clipPath>
+              </defs>
+            </svg>
           </button>
-          <button class="card__like-button accent__text button">         
+          <button class="card__like-button button button-animation accent-text" type="button">
+            <span class="button__text">Like</span>
+          </button>
+        </div>
+      </article>
+      <article class="card wrapper flex">
+        <h2 class="card__title">1 спринт: Я — чистый лист</h2>
+        <div class="card__overlay accent-text">
+          <span class="card__overlay-decor">&lt;/html&gt;</span>
+          <picture>
+            <source srcset="./assets/images/car_375x375.png" media="(max-width: 375px)">
+            <img src="./assets/images/car_700x700.png" alt="" class="card__image"> <!-- добавить описание -->
+          </picture>
+        </div>
+        <p class="card__content">
+          Это было самое начало пути. На этом этапе важно было проникнуться основами и 
+          настроиться на учёбу. И, возможно, подумать, как новые знания могут повлиять на ваше 
+          будущее.
+        </p>
+        <p class="card__content">
+          Место для ваших воспоминаний о начале обучения.
+        </p>
+        <div class="card__button flex">
+          <button class="card__icon-button button" type="button">
+            <svg 
+              class="like-icon" 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="38" 
+              height="34" 
+              fill="none"
+            >
+              <g class="heart" clip-path="url(#a)">
+                <path 
+                  class="contour" 
+                  fill="var(--fill-accent, var(--accent-color, #000))" 
+                  d="M12 6H9v3h3V6Zm3 0h-3v3h3V6ZM9 9H6v3h3V9Zm0 3H6v3h3v-3Zm0 3H6v3h3v-3Zm9-9h-3v3h3V6Zm-6 12H9v3h3v-3Zm3 3h-3v3h3v-3Zm3 3h-3v3h3v-3Zm9-18h3v3h-3V6Zm-3 0h3v3h-3V6Zm6 3h3v3h-3V9Zm0 3h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-9-9h3v3h-3V6Zm6 12h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0-18h-3v3h3V9Z"
+                />
+                <path 
+                  class="main-body" 
+                  fill="none" 
+                  d="M12 9H9v3h3V9Zm3 3h-3v3h3v-3Zm3-3h-3v3h3V9Zm-6 6H9v3h3v-3Zm3 0h-3v3h3v-3Zm0 3h-3v3h3v-3Zm3-6h-3v3h3v-3Zm0 9h-3v3h3v-3Zm0-3h-3v3h3v-3Zm9-9h3v3h-3V9Zm-3 0h3v3h-3V9Zm3 3h3v3h-3v-3Zm-3 0h3v3h-3v-3Zm-3-3h3v3h-3V9Zm6 6h3v3h-3v-3Zm-3 0h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-3-6h3v3h-3v-3Zm0 9h3v3h-3v-3Zm0-3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0 3h-3v3h3v-3Z"
+                />
+                <path 
+                  class="core" 
+                  fill="none" 
+                  d="M18 15h-3v3h3v-3Zm3 0h3v3h-3v-3Zm0 0h-3v3h3v-3Zm0-3h-3v3h3v-3Zm0 6h-3v3h3v-3Z"
+                />
+              </g>
+                <path 
+                  class="sparks" 
+                  fill="var(--fill-sparks, #f00)" 
+                  d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
+                />
+              <defs>
+                <clipPath id="a">
+                  <path fill="#fff" d="M0 0h39v36H0z"/>
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+          <button class="card__like-button button button-animation accent-text" type="button">
             <span class="button__text">Like</span>
           </button>
         </div>
       </article>
     </main>
-    <footer class="footer box-frame accent__text">
-      <button class="footer__save-button buttom-animation button">
-        <svg width="21" height="21" viewBox="0 0 21 21">
+    <footer class="footer wrapper flex">
+      <button 
+        class="footer__save-button button-animation button accent-text" 
+        type="button" 
+        onclick="window['dialog-id'].showModal()" 
+        aria-controls="dialog-id">
+        <svg class="floppy-icon" width="21" height="21" viewBox="0 0 21 21">
           <use href="./assets/svg/floppy.svg#floppy-1">
         </svg>
         <span class="button__text">Сохранить на память</span>
       </button>
+
+      <dialog 
+        id="dialog-id" 
+        class="banner" 
+        aria-label="Всплывающее окно - сохранить"
+      >
+        <div class="banner__content flex">
+          <svg class="floppy-icon" width="39" height="39" viewBox="0 0 21 21">
+            <use href="./assets/svg/floppy.svg#floppy-1">
+          </svg>
+          <p class="banner__content-text accent-text">Вставьте дискету, чтобы продолжить</p>
+        </div>
+        <form id="save">
+          <button 
+            class="banner__button-save button button-animation accent-text" 
+            type="submit" 
+            form="save"
+          >
+            <span class="button__text">ок</span>
+          </button>
+        </form>
+      </dialog>
+
     </footer>
     <script src="./scripts/like.js"></script>
   </body>
