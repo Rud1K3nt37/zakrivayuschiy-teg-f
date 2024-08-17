@@ -41,8 +41,8 @@
   --gap-m: 50px;
 
   --margin-s: 25px ;
-  --margin-m: 100px;
-  --margin-l: ;
+  --margin-m: 50px;
+  --margin-l: 100px;
   --margin-button-not-last: 14px; /* может более общее название? */
 
   --padding-s: 20px;
@@ -71,4 +71,13 @@
 
   --fill-accent: var(--accent-color, #000);
   --fill-sparks: #f00;
+  
+  --filter-retro: contrast(150%) brightness(80%) saturate(200%);
+  --filter-depression: sepia(60%) saturate(50%) brightness(90%);
+  --filter-happy: invert(75%);
+  --filter-retro-neon: contrast(150%) sepia(20%) hue-rotate(270deg) saturate(150%);
+  --filter-melancholy: invert(75%) sepia(20%) saturate(80%);
+  --filter-vintage: sepia(100%) contrast(90%) saturate(60%);
+  --filter-sleepy: blur(8px) hue-rotate(260deg);
+  --filter-psychedelic: hue-rotate(150deg) invert(15%) brightness(80%) contrast(85%);
 }
