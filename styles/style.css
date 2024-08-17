@@ -258,33 +258,21 @@
 .footer {
   margin: 50px 0 103px 0; /* -- */
   background-color: var(--background-color, #fff);
-  inline-size: 355px;
-  block-size: 55px;
+  inline-size: clamp(306px, 45vw, 335px);
+
 }
 
 .footer__save-button {
   text-transform: none;
-  padding: 15px 21px 15px 19px;
+  padding: 15px 15px 15px 15px;
 }
 
-@media (width <= 375px) {
-  .footer {
-    inline-size: 306px;
-    block-size: 80px;
-  }
-
-  .footer__save-button {
-    padding: 15px 16px 15px 19.5px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
+@media (width <= 768px) {
   .footer__save-button .floppy-icon {
     width: 28px;
     height: 28px;
     width: 100%;
+    margin-block-end: 8px;
   }
 }
 
