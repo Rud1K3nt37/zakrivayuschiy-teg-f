@@ -109,7 +109,7 @@
 
 .theme-menu__button:focus,
 .card__like-button:focus,
-.footer__save-button:focus,
+.card__save-button:focus,
 .banner__button-save:focus {
   outline: none;
 }
