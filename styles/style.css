@@ -12,40 +12,7 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
-.accent-text {
-  font-family: var(--font-accent, 'PressStart2P-Regular', sans-serif);
-  text-transform: uppercase;
-}
 
-.wrapper {
-  border: var(--border, 2px solid var(--accent-color, #000));
-  background-color: var(--background-color, #fff);
-  inline-size: min(100%, var(--container-max-width, 700px));
-}
-
-.flex {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.button {
-  border: none;
-  padding: 0;
-  font-size: var(--font-size-s, 14px);
-  text-transform: uppercase;
-  background-color: transparent;
-  cursor: pointer;
-  appearance: none;
-}
-
-/*
- TODO:  
-    проверить потом на переполнении контента;
-    может картинку сделать 696px, а border сделать для заголовка нижний и параграфа верхний небольшое расхождение в пару пикселей;
-    сделать правильный порядок по всевдоклассам;
-    я ограничиваю всё по высоте сделать гибкий размер;
-*/
 .page {
   color: var(--accent-color, #000);
   font-family: var(--font-main, Arial, sans-serif);
@@ -57,15 +24,31 @@
   min-block-size: 100dvb;
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .header {
   margin-block-start: var(--margin-l, 100px);
+}
+
+.wrapper {
+  border: var(--border, 2px solid var(--accent-color, #000));
+  background-color: var(--background-color, #fff);
+  inline-size: min(100%, var(--container-max-width, 700px));
+}
+
+.accent-text {
+  font-family: var(--font-accent, 'PressStart2P-Regular', sans-serif);
+  text-transform: uppercase;
 }
 
 .header__logo {
   padding-block-start: var(--padding-adaptive-logo, 
     clamp(120px, calc(120px + (136 - 120) * ((100vw - 375px) / (700 - 375))), 136px));
   font-size: clamp(2.72rem, 4.92vw + 1.7rem, 3.61rem);
-  
 }
 
 .header__title {
@@ -84,6 +67,16 @@
 
 .theme-menu__list {
   font-size: var(--font-size-s, 14px); /* сам ul имеет 18px из-за этого расхождение по px */
+}
+
+.button {
+  border: none;
+  padding: 0;
+  font-size: var(--font-size-s, 14px);
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+  appearance: none;
 }
 
 .theme-menu__button {
@@ -116,7 +109,8 @@
 
 .theme-menu__button:focus,
 .card__like-button:focus,
-.footer__save-button {
+.footer__save-button:focus,
+.banner__button-save:focus {
   outline: none;
 }
 
@@ -244,8 +238,6 @@
 }
 
 .card__like-button {
-  border: var(--border, 2px solid var(--accent-color, #000));
-  text-align: center;
   text-transform: none;
   inline-size: 130px; /* если использовать падинг то реагирует на размер с иконкой, скорее всего button__text добавить ещё класс для размера? */
   block-size: 38px;
@@ -268,19 +260,16 @@
   stroke-width: 0;
 }
 
-.footer {
-  margin: var(--margin-m, 50px) 0 103px 0;
+.card__save-button {
+  text-transform: none;
+  padding: 15px;
+  margin-block-end: 103px;
   background-color: var(--background-color, #fff);
   inline-size: clamp(306px, 45vw, 335px);
 }
 
-.footer__save-button {
-  text-transform: none;
-  padding: 15px;
-}
-
 @media (width <= 768px) {
-  .footer__save-button .floppy-icon {
+  .card__save-button .floppy-icon {
     inline-size: max(100%, 28px);
     block-size: 28px;
     margin-block-end: 8px;
@@ -291,10 +280,10 @@
   position: fixed;
   inset: 0;
   display: grid;
-  place-items: center;
+  justify-content: center;
   gap: var(--gap-l, 30px);
   border: var(--border, 2px solid var(--accent-color, #000));
-  padding: var(--padding-adaptive-banner, 30px clamp(42px, 2vw, 30px));
+  padding: 30px;
   background-color: var(--background-color, #fff);
   transition: 0.3s ease-in-out;
 }
@@ -309,8 +298,11 @@
 } 
 
 .banner__content {
-  flex-direction: row;
-  gap: var(--gap-m, 20px);
+  display: flex;
+  align-items: center;
+  inline-size: 293px;
+  block-size: 63px;
+  column-gap: var(--gap-m, 20px);
   font-size: var(--font-size-s, 14px);
 }
 
@@ -318,12 +310,22 @@
   color: var(--accent-color, #000);
   line-height: 1.5;
   text-transform: uppercase;
-  inline-size: min(198px, 234px);
+  inline-size: clamp(198px, 20vw, 234px);
   block-size: 63px;
 }
 
 .banner__button-save {
-  outline: var(--border, 2px solid var(--accent-color, #000));
-  padding: 12.5px clamp(114.5px, 2vw, 132.5px);
+  padding: 11px clamp(114.5px, 10vw, 130.5px);
   line-height: var(--line-height-sm, 0.9);
+}
+
+@media (width <= 375px) {
+  .banner {
+    padding: 30px 34px;
+  }
+
+  .banner__content {
+    inline-size: 257px;
+    block-size: 63px;
+  }
 }

@@ -25,6 +25,13 @@
 
 .button-animation {
   position: relative;
+  border: var(--border, 2px solid var(--accent-color, #000));
+  text-align: center;
+}
+
+.button-animation:focus-visible {
+  box-shadow: var(--box-shadow-button, 2px 2px 0 var(--accent-color, #000));
+  transition: var(--transition-s, 0.3s);
 }
 
 .button-animation::after {
@@ -42,6 +49,38 @@
 .button-animation:hover::after {
   transform: scaleX(1);
 }
+
+/* .card__like-button {
+  border: var(--border, 2px solid var(--accent-color, #000));
+  text-align: center;
+  text-transform: none;
+  inline-size: 130px;
+  block-size: 38px;
+}
+
+.card__like-button:focus-visible {
+  box-shadow: var(--box-shadow-button, 2px 2px 0 var(--accent-color, #000));
+  transition: var(--transition-s, 0.3s);
+} */
+
+/* .footer__save-button {
+  text-transform: none;
+  padding: 15px;
+}
+
+@media (width <= 768px) {
+  .footer__save-button .floppy-icon {
+    inline-size: max(100%, 28px);
+    block-size: 28px;
+    margin-block-end: 8px;
+  }
+} */
+
+/* .banner__button-save {
+  outline: var(--border, 2px solid var(--accent-color, #000));
+  padding: 12.5px clamp(114.5px, 2vw, 132.5px);
+  line-height: var(--line-height-sm, 0.9);
+} */
 
 .like-icon .sparks,
 .like-icon .core,
