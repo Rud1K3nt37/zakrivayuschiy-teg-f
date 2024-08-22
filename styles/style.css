@@ -319,7 +319,7 @@
   line-height: var(--line-height-sm, 0.9);
 }
 
-@media (width <= 375px) {
+@media (width >= 375px) {
   .banner {
     padding: 30px 34px;
   }
