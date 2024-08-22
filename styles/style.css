@@ -300,8 +300,7 @@
 .banner__content {
   display: flex;
   align-items: center;
-  inline-size: 293px;
-  block-size: 63px;
+  inline-size: clamp(257px, 21vw, 293px);
   column-gap: var(--gap-m, 20px);
   font-size: var(--font-size-s, 14px);
 }
@@ -311,21 +310,16 @@
   line-height: 1.5;
   text-transform: uppercase;
   inline-size: clamp(198px, 20vw, 234px);
-  block-size: 63px;
+  
 }
 
 .banner__button-save {
-  padding: 11px clamp(114.5px, 10vw, 130.5px);
+  padding: 11px clamp(112.5px, 10vw, 130.5px);
   line-height: var(--line-height-sm, 0.9);
 }
 
-@media (width >= 375px) {
+@media (width <= 500px) {
   .banner {
-    padding: 30px 34px;
-  }
-
-  .banner__content {
-    inline-size: 257px;
-    block-size: 63px;
+    padding: 30px 36px;
   }
 }
